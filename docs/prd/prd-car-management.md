@@ -2,7 +2,7 @@
 
 ## Document Information
 - Product / Feature Name: Car Management
-- Author: copilot
+- Author: Copilot
 - Date:
 - Version:
 
@@ -358,4 +358,4 @@ Car Management is the prerequisite capability for every other rental feature (re
 - Vehicle status updates (availability, GPS, geofence alerts) reflected within 5 minutes of the actual event.
 - 100% of vehicles with expiring insurance (within 1 week) blocked from new allocation before expiry.
 - 100% of returns with visible chargeable damage correctly flagged and charged.
-- Reduce consecutive vehicle idle time occurrences (5+ days in a row) as tracked per location, with a target reduction over each reporting period.
+- Reduce consecutive vehicle idle time occurrences (5+ days in a row) by 20% per location, per reporting period.
