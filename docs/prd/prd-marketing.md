@@ -194,11 +194,11 @@ The key users are prospective local customers, tourists, insurance-replacement c
 
 #### User Story: Capture ID-validation consent
 
-**Statement:** **As a** prospective renter, **I want** to provide consent for valid ID-card validation, **so that** my identity can be checked for the rental.
+**Statement:** **As a** prospective renter, **I want** to provide consent for ID-card validation, **so that** my identity can be checked for the rental.
 
 **Requirement details:**
 
-- Request consent before performing valid ID-card validation.
+- Request consent before performing ID-card validation.
 - Do not perform ID-card validation if consent has not been provided.
 
 **Acceptance criteria:**
