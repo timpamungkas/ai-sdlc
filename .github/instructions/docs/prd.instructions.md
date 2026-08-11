@@ -1,49 +1,54 @@
---- 
-applyTo: "docs/prd/**" 
+---
+applyTo: "docs/prd/**"
 ---
 
-Use this folder only for PRDs and related supporting files.  
+Use this folder only to store the PRD (product requirement document) and related support files.
+When generating a specific artifact, you must follow this standard.
 
-Filename rules:
- - PRD: `prd-[feature].md`
- - Supporting files: no naming convention required
+The general filename rule is:
+  - `prd-[feature].md` for the PRD file.
+  - For supporting files, no specific rule
 
-For each PRD, use this structure and sequence:
+For PRD (product requirement document), it must contain the following items (in the given sequence):
 
 [Title: PRD - Product / Feature Name]
 
- - Document Information
-   - Product / Feature Name:
-   - Author: Assignee's username
-   - Date: blank
-   - Version: blank
+- Document Information
+  + Product / Feature Name: ...
+  + Author: The assignee's username
+  + Date: blank
+  + Version: blank
 
- - Overview
-   - Background: Why are we building this?
-   - Objective: What problem are we solving?
-   - Goals: What do we want to achieve?
+- Table of Contents
+  Includes items up to the second-level header
 
- - Problem Statement
-   - User pain point or business problem
-   - Key users affected
-   - Why it matters now
+- Overview
+  + Background: Why are we building this?
+  + Objective: What problem are we solving?
+  + Goals: What do we want to achieve?
 
- - Functional Requirements
-   - Ensure requirements address the problem statement.
-   - For each user story, include:
-     - Title
-     - Statement: As a <type of user>, I want <goal>, so that <reason/benefit>.
-     - Requirement details
-     - Acceptance criteria using Given-When-Then format
+- Problem Statement
+  + Describe the user pain point or business problem.
+  + Who is affected (the key users)?
+  + Why is this important now?
 
- - Non-Functional Requirements
-   Leave blank.
+- Functional Requirements
+  + Ensure the functional requirements are designed to solve the problem statement.
+  + Write all the functional user stories here. For each user story, it must contain:
+    - title
+    - statement: **As a** <type of user>, **I want** <goal>, **so that** <reason/benefit>.
+    - requirement detail explaining the statement
+    - acceptance criteria, in **given-when-then** format
 
- - Dependencies & Constraints
-   Explicitly state relevant limitations (e.g., desktop web only, mobile not supported).
+- Non-Functional Requirements  
+  Leave it blank
 
- - Success Metrics
-   Define measurable outcomes, such as:
-   - Increase signup conversion to 2000 new user/month
-   - Reduce drop-off rate by 10%.
-   - Improve task completion time by a minimum of 30 minutes
+- Dependency & Constraints  
+  State explicitly any limitations (e.g., only for desktop web, not mobile yet).
+
+- Success Metrics
+  + How do we measure success?
+  + Example:
+    - Increase signup conversion to 2000 new user/month
+    - Reduce drop-off rate by 10%.
+    - Improve task completion time by a minimum of 30 minutes
