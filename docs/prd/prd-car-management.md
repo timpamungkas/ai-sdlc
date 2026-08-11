@@ -2,7 +2,7 @@
 
 ## Document Information
 - Product / Feature Name: Car Management
-- Author: copilot
+- Author: Copilot
 - Date:
 - Version:
 
