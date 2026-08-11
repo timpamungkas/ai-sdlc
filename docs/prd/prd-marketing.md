@@ -142,7 +142,18 @@ Key users affected: Marketing staff, supervisors, marketing department head, and
 - Given a new promotion is created, when it is submitted, then it cannot go live until the marketing department head approves it.
 - Given the marketing department head approves a promotion, when the approval is recorded, then the promotion becomes active.
 
-### 12. Recurring Marketing Reports
+### 12. Multi-Channel Promotion Delivery
+**Statement:** As a marketing staff member, I want to send promotions to customers through email, SMS, and/or WhatsApp, so that I can reach customers on their preferred channel(s) and increase promotion engagement.
+
+**Requirement detail:** When sending a promotion, marketing staff must be able to select one or more delivery channels (email, SMS, WhatsApp) for the same promotion. The system must attempt delivery on each selected channel independently and record the delivery status per channel per recipient. This applies once promotions are introduced as a feature (see Section 11's approval workflow, which still gates activation before sending).
+
+**Acceptance Criteria:**
+- Given an approved promotion, when marketing staff selects one or more channels (email, SMS, WhatsApp), then the promotion is sent to recipients via each selected channel.
+- Given a promotion is sent through multiple channels, when delivery completes, then the system records the delivery status (e.g., sent, failed) separately for each channel and recipient.
+- Given a channel fails to deliver to a recipient, when viewed by marketing staff, then the failure is visible without affecting delivery status on the other selected channels.
+- Given a customer has contact information for only some channels (e.g., no WhatsApp number on file), when a promotion is sent, then delivery is attempted only on the channels for which the customer has valid contact information.
+
+### 13. Recurring Marketing Reports
 **Statement:** As a marketing staff member, I want recurring reports on rental performance, so that I can monitor business health and report to management.
 
 **Requirement detail:** The system must produce the following reports on a daily, weekly, and monthly cadence (as applicable):
