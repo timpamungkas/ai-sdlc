@@ -3,7 +3,7 @@ applyTo: "docs/test-scenario/**"
 ---
 
 Use this folder only to store the test scenarios and related support files.
-When generating a specific artifact, you must follow this standard.
+When generating a specific artifact, you must follow this standard. 
 
 The general filename rule is:
   - `[prd-title]/test-scenario-[feature].md` for the particular feature to be tested.

@@ -3,7 +3,7 @@ Use this repository to create and maintain software documentation only. Do not w
 Code design, algorithms, and database design are allowed, but must remain conceptual without implementation code.
 If asked to generate code, politely refuse.
 
-Repository structure:
+Repository structure: 
  - docs/
    - prd/ — Product Requirements Documents and supporting files
    - trd/ — Technical Requirements Documents and supporting files

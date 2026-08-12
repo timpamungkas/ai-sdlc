@@ -3,7 +3,7 @@ applyTo: "docs/prd/**"
 ---
 
 Use this folder only to store the PRD (product requirement document) and related support files.
-When generating a specific artifact, you must follow this standard.
+When generating a specific artifact, you must follow this standard. 
 
 The general filename rule is:
   - `prd-[feature].md` for the PRD file.

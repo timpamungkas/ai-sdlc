@@ -1,7 +1,7 @@
 # PRD - Accounting
 
 ## Document Information
-- Product / Feature Name: Accounting
+- Product / Feature Name: Accounting 
 - Author: copilot
 - Date:
 - Version:
