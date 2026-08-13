@@ -1,8 +1,8 @@
 # Database Design - Reservation Allocation
 
 ## Table of Contents
-- [vehicles](#vehicles)
 - [vehicle_classes](#vehicle_classes)
+- [vehicles](#vehicles)
 - [reservations](#reservations)
 - [reservation_allocations](#reservation_allocations)
 

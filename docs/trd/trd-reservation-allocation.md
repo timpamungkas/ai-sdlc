@@ -94,7 +94,10 @@ Allocation runs synchronously as part of reservation creation, within a single t
 Pseudocode:
 ```
 function allocateVehicle(reservation):
-    lock(reservation.vehicleClassId)  // serialize allocation per vehicle class
+    lock(reservation.vehicleClassId)  // serialize allocation per vehicle class;
+                                      // combined with processing reservations in
+                                      // ascending requested_at order, this enforces
+                                      // first-come-first-served allocation
     candidates = findVehicles(
         vehicleClassId = reservation.vehicleClassId,
         status = "available"
@@ -144,6 +147,15 @@ sequenceDiagram
     Alloc->>DB: unlock vehicle class
     Alloc-->>API: allocation result
     API-->>Client: 201 Created (status, vehicleId)
+```
+
+```
+function processIncomingReservations(queue):
+    // requests are dequeued and processed strictly in ascending requested_at
+    // order to guarantee first-come-first-served allocation
+    while queue is not empty:
+        reservation = queue.dequeueByAscendingRequestedAt()
+        allocateVehicle(reservation)
 ```
 
 Ordering guarantee: requests are processed for allocation in ascending order of `requested_at` (the timestamp the reservation request was received), ensuring first-come-first-served behavior when two reservations compete for the same class and overlapping time window.
