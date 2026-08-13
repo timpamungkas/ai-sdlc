@@ -21,7 +21,7 @@ This TRD implements the [Vehicle Onboarding](https://github.com/timpamungkas/ai-
 - Managing the vehicle lifecycle status (Incoming, Active, Maintenance, Decommissioning, Sold) as staff manually transition a vehicle between stages.
 
 ## In Scope
-- Capturing and persisting vehicle onboarding data: VIN, license plate, purchase date, purchase cost, insurance details (policy number, expiry date), odometer reading, vehicle type (brand, model, manufacturing year), size, class, number of seats, fuel type, and ownership.
+- Capturing and persisting vehicle onboarding data: VIN, license plate, purchase date, purchase cost, insurance details (policy number, expiry date), odometer reading, vehicle type (brand, model, manufacturing year), size, vehicle class, number of seats, fuel type, and ownership.
 - Validating that required onboarding fields are present before a vehicle record is created.
 - Assigning an initial lifecycle status ("Incoming") and a home location reference to a newly onboarded vehicle.
 - Manual, staff-triggered transitions between lifecycle statuses: Incoming → Active; Active → Maintenance; Maintenance → Active; Active → Decommissioning; Decommissioning → Sold.
@@ -66,7 +66,7 @@ A list of tables required to support Vehicle Onboarding is defined in [Database 
   | model | string | yes | |
   | manufacturingYear | integer | yes | |
   | size | enum (small, medium) | yes | Only "small" and "medium" are supported in this phase, per the PRD's current vehicle size classification. |
-  | class | enum (economy, luxury) | yes | |
+  | vehicleClassId | string (UUID) | yes | Must reference an existing vehicle class (see `vehicle_classes` in [Database Design - Reservation Allocation](./database-design-reservation-allocation.md)). |
   | seats | integer | yes | Must be > 0. |
   | fuelType | enum (gas, electric, hybrid) | yes | |
   | homeLocationId | string (UUID) | yes | Must reference an existing location. |
@@ -80,7 +80,7 @@ A list of tables required to support Vehicle Onboarding is defined in [Database 
 - Error Responses:
   - `400 Bad Request` when a required field is missing or fails validation; response body lists each invalid/missing field and the reason.
   - `409 Conflict` when the VIN or license plate already exists.
-  - `422 Unprocessable Entity` when `homeLocationId` is a syntactically valid identifier but does not reference an existing location; response body identifies `homeLocationId` as the failing field.
+  - `422 Unprocessable Entity` when `homeLocationId` or `vehicleClassId` is a syntactically valid identifier but does not reference an existing location/vehicle class; response body identifies the failing field.
 
 **Transition Vehicle Lifecycle Status**
 - Method: `PATCH`
@@ -107,7 +107,8 @@ A list of tables required to support Vehicle Onboarding is defined in [Database 
 - `purchaseCost`: decimal, precision 15, scale 2, greater than 0.
 - `odometerReading`, `seats`: non-negative integers, `seats` must be greater than 0.
 - `manufacturingYear`: 4-digit integer between 1900 and the current calendar year at the time of the request (inclusive).
-- `size`, `class`, `fuelType`, `status`: must match one of the predefined enum values; any other value is rejected.
+- `size`, `fuelType`, `status`: must match one of the predefined enum values; any other value is rejected.
+- `vehicleClassId`: must be a valid UUID that references an existing, non-deleted entry in `vehicle_classes`.
 
 **Algorithm - Create Vehicle**
 ```
@@ -116,8 +117,8 @@ A list of tables required to support Vehicle Onboarding is defined in [Database 
    - If validation fails, return 400 with the list of invalid/missing fields.
 3. Check that VIN and license plate do not already exist.
    - If either already exists, return 409 Conflict.
-4. Check that homeLocationId references an existing location.
-   - If not found, return 422 Unprocessable Entity identifying homeLocationId as the failing field.
+4. Check that homeLocationId references an existing location and vehicleClassId references an existing vehicle class.
+   - If either is not found, return 422 Unprocessable Entity identifying the failing field.
 5. Persist a new vehicle record with:
    - status = "Incoming"
    - ownership = the company (fixed value)
@@ -152,8 +153,8 @@ sequenceDiagram
     API->>API: Validate required fields
     API->>DB: Check VIN / license plate uniqueness
     DB-->>API: Uniqueness result
-    API->>DB: Check home location exists
-    DB-->>API: Location result
+    API->>DB: Check home location and vehicle class exist
+    DB-->>API: Location/class result
     API->>DB: Insert vehicle (status=Incoming, ownership=company)
     DB-->>API: Vehicle record created
     API-->>Staff: 201 Created (vehicle record)
