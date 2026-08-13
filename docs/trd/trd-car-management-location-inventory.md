@@ -46,6 +46,8 @@ The following tables are required for this feature. Table definitions are docume
 - `vehicle_location_history`
 - `vehicle_availability_blocks`
 
+This feature references the `vehicles` table, whose canonical, merged definition (consolidated across the Vehicle Onboarding, Reservation Allocation, and Location & Inventory Management TRDs) is documented in [database-design-vehicle.md](./database-design-vehicle.md).
+
 ### Frontend
 - The location transfer form must validate that a destination location is selected and differs from the current home location before submission is enabled.
 - Validation and system error messages (e.g., missing destination location, transfer failure) must be displayed inline next to the relevant field.
