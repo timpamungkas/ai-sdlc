@@ -112,7 +112,7 @@ function allocateVehicle(reservation):
     )
 
     availableVehicle = null
-    for vehicle in candidateVehicles (ordered by vehicle.id):
+    for vehicle in candidateVehicles (ordered by vehicle.created_at ascending):
         if not hasOverlappingAllocation(vehicle, reservation.pickupDatetime, reservation.returnDatetime):
             availableVehicle = vehicle
             break
