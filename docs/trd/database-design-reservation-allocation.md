@@ -34,12 +34,28 @@ erDiagram
 
 ### vehicles
 
+> **Note:** This is the canonical `vehicles` table shared with the Vehicle Onboarding and Location & Inventory Management TRDs. It merges the fields introduced across those TRDs with the fields required for Reservation Allocation, so that a single, non-redundant definition exists across all TRDs. Only the fields, index, and constraint details relevant to those TRDs are repeated here for completeness; refer to the Vehicle Onboarding TRD for the full field-level validation rules.
+
 | Field | Data Type | Index | Constraint | Description |
 | --- | --- | --- | --- | --- |
 | id | UUID | Primary Key | NOT NULL | Unique identifier of the vehicle |
-| vehicle_class_id | UUID | Index | NOT NULL, FOREIGN KEY (vehicle_classes.id) | Class the vehicle belongs to |
-| registration_number | TEXT | Unique Index | NOT NULL, UNIQUE | Vehicle registration/plate number |
-| status | TEXT | Index | NOT NULL | Current availability status (e.g., available, allocated, maintenance) |
+| vin | TEXT | Unique Index | NOT NULL, UNIQUE | Vehicle identification number |
+| license_plate | TEXT | Unique Index | NOT NULL, UNIQUE | Vehicle license plate/registration number |
+| purchase_date | DATE | - | NOT NULL | Date the vehicle was purchased |
+| purchase_cost | DECIMAL(15,2) | - | NOT NULL | Purchase cost of the vehicle |
+| insurance_policy_number | TEXT | - | NOT NULL | Insurance policy number |
+| insurance_expiry_date | DATE | - | NOT NULL | Insurance policy expiry date |
+| odometer_reading | INTEGER | - | NOT NULL, CHECK (odometer_reading >= 0) | Latest odometer reading, in kilometers |
+| brand | TEXT | - | NOT NULL | Vehicle manufacturer brand |
+| model | TEXT | - | NOT NULL | Vehicle model |
+| manufacturing_year | INTEGER | - | NOT NULL | Year the vehicle was manufactured |
+| size | TEXT | Index | NOT NULL, CHECK (size IN ('small', 'medium')) | Vehicle size classification |
+| vehicle_class_id | UUID | Index | NOT NULL, FOREIGN KEY (vehicle_classes.id) | Vehicle class the vehicle belongs to, used to match reservations of the same class |
+| seats | INTEGER | - | NOT NULL, CHECK (seats > 0) | Number of seats |
+| fuel_type | TEXT | Index | NOT NULL, CHECK (fuel_type IN ('gas', 'electric', 'hybrid')) | Vehicle fuel type |
+| ownership | TEXT | - | NOT NULL, DEFAULT 'company' | Owner of the vehicle; always the company |
+| status | TEXT | Index | NOT NULL, CHECK (status IN ('Incoming', 'Active', 'Maintenance', 'Decommissioning', 'Sold')), DEFAULT 'Incoming' | Current lifecycle status of the vehicle |
+| home_location_id | UUID | Index | NOT NULL, FOREIGN KEY (locations.id) | Home location the vehicle is assigned to (see Location & Inventory Management TRD) |
 | created_at | TIMESTAMP WITH TIME ZONE | - | NOT NULL | Record creation timestamp |
 | updated_at | TIMESTAMP WITH TIME ZONE | - | NOT NULL | Record last update timestamp |
 | deleted_at | TIMESTAMP WITH TIME ZONE | - | - | Record soft-delete timestamp |
@@ -47,7 +63,10 @@ erDiagram
 | updated_by | TEXT | - | NOT NULL | User/system that last updated the record |
 | deleted | BOOL | - | NOT NULL, DEFAULT false | Soft-delete flag |
 
-> **Note:** `status` values relevant to allocation are limited to values indicating whether the vehicle is available for allocation (e.g., `available`) or not (e.g., `allocated`, `maintenance`, `out_of_service`). Full lifecycle status management is defined in the Vehicle Status & Telemetry TRD.
+> **Note on merged fields/constraints:**
+> - `vehicle_class_id` (a foreign key to `vehicle_classes`) supersedes any flat `class` enum field, so vehicle classification is extensible and can be matched directly against a reservation's requested `vehicle_class_id`.
+> - `license_plate` supersedes any separately named `registration_number` field; both referred to the same data.
+> - `status` is the single lifecycle status column shared by all TRDs referencing this table (`Incoming`, `Active`, `Maintenance`, `Decommissioning`, `Sold`). Reservation Allocation only considers vehicles with `status = 'Active'` as allocation candidates; time-based conflicts among `Active` vehicles are resolved by checking for overlapping records in `reservation_allocations`, not by a separate allocation-specific status value.
 
 ### reservations
 

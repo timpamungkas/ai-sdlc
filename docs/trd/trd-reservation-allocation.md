@@ -108,7 +108,7 @@ function allocateVehicle(reservation):
     candidateVehicles = findVehicles(
         vehicleClassId = reservation.vehicleClassId,
         locationId = reservation.pickupLocationId,
-        status = "available"
+        status = "Active"  // merged vehicle lifecycle status (see database-design-reservation-allocation.md)
     )
 
     availableVehicle = null
