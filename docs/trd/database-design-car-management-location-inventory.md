@@ -14,7 +14,7 @@ erDiagram
     VEHICLES ||--o{ VEHICLE_AVAILABILITY_BLOCKS : "has"
 ```
 
-> Note: `VEHICLES` is defined in [Database Design - Vehicle Onboarding](./database-design-vehicle-onboarding.md), the canonical, merged definition shared across the Vehicle Onboarding, Reservation Allocation, and Location & Inventory Management TRDs. It is shown here only as a reference for relationships; its full table design is out of scope for this document.
+> Note: `VEHICLES` is defined in [Database Design - Vehicle Onboarding](./database-design-vehicle-onboarding.md), the canonical, merged definition shared across the Vehicle Onboarding, Reservation Allocation, Location & Inventory Management, and Maintenance & Service Scheduling TRDs. It is shown here only as a reference for relationships; its full table design is out of scope for this document.
 
 ## Tables
 

@@ -32,7 +32,7 @@ This TRD implements the [Location & Inventory Management](https://github.com/tim
 
 ## Constraints
 - The logic for creating, confirming, or cancelling reservations is out of scope; this document only consumes reservation-driven availability blocks (see Reservation Allocation TRD).
-- The logic for scheduling maintenance or determining maintenance thresholds is out of scope; this document only consumes maintenance-driven availability blocks (see Maintenance & Service Scheduling TRD).
+- The logic for scheduling maintenance or determining maintenance thresholds is out of scope; this document only consumes maintenance-driven availability blocks (see [Maintenance & Service Scheduling TRD](./trd-maintenance-service-scheduling.md)).
 - Vehicle onboarding fields and lifecycle status transitions (Incoming, Active, Maintenance, Decommissioning, Sold) are out of scope (see Vehicle Onboarding TRD); this document only reads the vehicle's current lifecycle status where relevant to availability.
 - GPS telemetry and geofencing are out of scope (see Vehicle Status & Telemetry TRD).
 - Approval workflows for transfers (e.g., manager sign-off) are not covered; transfers are recorded as submitted.
@@ -46,7 +46,7 @@ The following tables are required for this feature. Table definitions are docume
 - `vehicle_location_history`
 - `vehicle_availability_blocks`
 
-This feature references the `vehicles` table, whose canonical, merged definition (consolidated across the Vehicle Onboarding, Reservation Allocation, and Location & Inventory Management TRDs) is documented in [database-design-vehicle-onboarding.md](./database-design-vehicle-onboarding.md).
+This feature references the `vehicles` table, whose canonical, merged definition (consolidated across the Vehicle Onboarding, Reservation Allocation, Location & Inventory Management, and Maintenance & Service Scheduling TRDs) is documented in [database-design-vehicle-onboarding.md](./database-design-vehicle-onboarding.md).
 
 ### Frontend
 - The location transfer form must validate that a destination location is selected and differs from the current home location before submission is enabled.

@@ -122,6 +122,7 @@ A list of tables required to support Vehicle Onboarding is defined in [Database 
 5. Persist a new vehicle record with:
    - status = "Incoming"
    - ownership = the company (fixed value)
+   - current_odometer = odometerReading (initial value, later updated by mileage-based maintenance scheduling; see [TRD - Maintenance & Service Scheduling](./trd-maintenance-service-scheduling.md))
    - all submitted onboarding fields
 6. Return 201 Created with the persisted vehicle record.
 ```
