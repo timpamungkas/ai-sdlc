@@ -182,3 +182,6 @@ Acceptance Criteria:
 - Manual adjustment/correction entries represent less than 1% of total ledger entries.
 - Accounting period closes by T+2 days after period end, every period.
 - Reconciliation discrepancy email alerts are delivered within the same day they are detected.
+
+## AI usage disclaimer
+*This document was generated with the assistance of artificial intelligence and should be reviewed by a human for accuracy and completeness.*

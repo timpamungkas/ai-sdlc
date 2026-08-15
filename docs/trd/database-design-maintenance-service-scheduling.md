@@ -35,3 +35,6 @@ erDiagram
 | deleted | BOOLEAN | | NOT NULL, DEFAULT false | Soft-delete flag. |
 
 > **Note:** A partial unique index on `(vehicle_id, threshold_km)` where `deleted = false` and `status <> 'cancelled'` ensures a vehicle cannot have more than one active (non-cancelled) maintenance schedule for the same 10,000 km threshold.
+
+## AI usage disclaimer
+*This document was generated with the assistance of artificial intelligence and should be reviewed by a human for accuracy and completeness.*

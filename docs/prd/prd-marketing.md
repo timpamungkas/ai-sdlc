@@ -185,3 +185,6 @@ Key users affected: Marketing staff, supervisors, marketing department head, and
 - Achieve a positive month-over-month growth trend in new customers acquired, as tracked by the monthly "new customer" report.
 - Achieve a positive month-over-month growth trend in customers with repeated rental orders, as tracked by the monthly "repeat customer" report.
 - Reduce the rate of customers renting/extending rentals without paying on time to as close to 0% of active rentals as possible, as tracked via the approval workflow and payment records.
+
+## AI usage disclaimer
+*This document was generated with the assistance of artificial intelligence and should be reviewed by a human for accuracy and completeness.*
