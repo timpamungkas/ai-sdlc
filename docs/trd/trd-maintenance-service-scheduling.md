@@ -111,7 +111,7 @@ Maintenance scheduling is exposed via a REST API.
   | status | enum | Always "cancelled". |
 - **Error Responses:**
   - `404 Not Found` when `maintenanceScheduleId` does not exist.
-  - `422 Unprocessable Entity` when the schedule is already "completed".
+  - `422 Unprocessable Entity` when the schedule is not currently in "scheduled" status (i.e., already "completed" or "cancelled").
 
 #### Common Validation
 - `vehicleId`, `maintenanceScheduleId`: must be a valid UUID (regex: `^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$`) and must reference an existing, non-deleted record.
@@ -148,7 +148,7 @@ Maintenance scheduling is exposed via a REST API.
 2. Look up the maintenance schedule by maintenanceScheduleId.
    - If not found, return 404.
 3. If completing: verify current status is "scheduled"; if not, return 422.
-   If cancelling: verify current status is not "completed"; if not, return 422.
+   If cancelling: verify current status is "scheduled" (not already "completed" or "cancelled"); if not, return 422.
 4. If cancelling: soft-delete the associated vehicle_availability_blocks entry
    (referenced by availability_block_id) so the vehicle is no longer blocked,
    and clear availability_block_id.

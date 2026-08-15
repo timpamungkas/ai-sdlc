@@ -26,7 +26,7 @@ erDiagram
 | insurance_policy_number | TEXT | | NOT NULL | Insurance policy number. |
 | insurance_expiry_date | DATE | | NOT NULL | Insurance policy expiry date. |
 | odometer_reading | INTEGER | | NOT NULL, CHECK (odometer_reading >= 0) | Odometer reading at onboarding, in the standard unit (km). |
-| current_odometer | INTEGER | Index | NOT NULL, CHECK (current_odometer >= odometer_reading), DEFAULT 0 | Latest known odometer reading (km), used to evaluate mileage-based maintenance thresholds. Updated whenever a newer reading is captured (e.g., at maintenance scheduling); the mechanism that keeps this in sync with in-service driving activity is out of scope for this table's owning TRDs. |
+| current_odometer | INTEGER | Index | NOT NULL, CHECK (current_odometer >= odometer_reading) | Latest known odometer reading (km), used to evaluate mileage-based maintenance thresholds. Set to `odometer_reading` at onboarding and updated whenever a newer reading is captured (e.g., at maintenance scheduling); the mechanism that keeps this in sync with in-service driving activity is out of scope for this table's owning TRDs. |
 | brand | TEXT | | NOT NULL | Vehicle manufacturer brand. |
 | model | TEXT | | NOT NULL | Vehicle model. |
 | manufacturing_year | INTEGER | | NOT NULL | Year the vehicle was manufactured. |
