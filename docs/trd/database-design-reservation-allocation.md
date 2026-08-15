@@ -66,3 +66,6 @@ erDiagram
 | deleted | BOOL | - | NOT NULL, DEFAULT false | Soft-delete flag |
 
 > **Note:** The `UNIQUE` constraint on `reservation_id` ensures a reservation has, at most, one active allocation, consistent with the no-overbooking requirement.
+
+## AI usage disclaimer
+*This document was generated with the assistance of artificial intelligence and should be reviewed by a human for accuracy and completeness.*

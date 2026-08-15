@@ -327,3 +327,6 @@ This is important now because the car rental line of business is new; without th
 - 100% of returned vehicles have complete inspection records (photos, damage checklist, fuel level) before check-in is finalized.
 - 100% of vehicles with insurance expiring within 7 days are blocked from new assignment.
 - Reduction in vehicles idle for 5+ consecutive days, tracked per location and globally.
+
+## AI usage disclaimer
+*This document was generated with the assistance of artificial intelligence and should be reviewed by a human for accuracy and completeness.*
