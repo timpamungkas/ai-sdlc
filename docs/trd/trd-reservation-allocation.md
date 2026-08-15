@@ -39,7 +39,7 @@ The requirement states that a vehicle must be automatically allocated to a reser
 ### Database Design
 The following tables are required for this feature:
 - `vehicle_classes`, `reservations`, `reservation_allocations` — defined in [Database Design - Reservation Allocation](./database-design-reservation-allocation.md).
-- `vehicles` — canonical definition in [Database Design - Vehicle Onboarding](./database-design-vehicle-onboarding.md), consolidated across the Vehicle Onboarding, Location & Inventory Management, and Reservation Allocation TRDs.
+- `vehicles` — canonical definition in [Database Design - Vehicle Onboarding](./database-design-vehicle-onboarding.md), consolidated across the Vehicle Onboarding, Location & Inventory Management, Reservation Allocation, and Maintenance & Service Scheduling TRDs.
 
 ### Backend
 Allocation is exposed as a REST API. GRPC/GraphQL are not required since the interaction is a simple synchronous request/response.

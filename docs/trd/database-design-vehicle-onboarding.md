@@ -14,7 +14,7 @@ erDiagram
 ## Tables
 
 ### vehicles
-> Note: This is the canonical definition of the `vehicles` table, merged from the Vehicle Onboarding, Location & Inventory Management, and Reservation Allocation TRDs. Other TRDs must reference this table instead of redefining it. `registration_number` (used in an earlier Reservation Allocation draft) and `license_plate` referred to the same data and have been consolidated into `license_plate`. The `class` enum previously defined directly on this table has been replaced by `vehicle_class_id`, a foreign key to the `vehicle_classes` table (see [Database Design - Reservation Allocation](./database-design-reservation-allocation.md)), so vehicle classification is maintained in one place.
+> Note: This is the canonical definition of the `vehicles` table, merged from the Vehicle Onboarding, Location & Inventory Management, Reservation Allocation, and Maintenance & Service Scheduling TRDs. Other TRDs must reference this table instead of redefining it. `registration_number` (used in an earlier Reservation Allocation draft) and `license_plate` referred to the same data and have been consolidated into `license_plate`. The `class` enum previously defined directly on this table has been replaced by `vehicle_class_id`, a foreign key to the `vehicle_classes` table (see [Database Design - Reservation Allocation](./database-design-reservation-allocation.md)), so vehicle classification is maintained in one place. `current_odometer` was added by the Maintenance & Service Scheduling TRD to track the vehicle's latest known mileage, distinct from `odometer_reading` (the reading captured at onboarding), so that mileage-based maintenance thresholds can be evaluated.
 
 | Field | Data Type | Index | Constraint | Description |
 | --- | --- | --- | --- | --- |
@@ -26,6 +26,7 @@ erDiagram
 | insurance_policy_number | TEXT | | NOT NULL | Insurance policy number. |
 | insurance_expiry_date | DATE | | NOT NULL | Insurance policy expiry date. |
 | odometer_reading | INTEGER | | NOT NULL, CHECK (odometer_reading >= 0) | Odometer reading at onboarding, in the standard unit (km). |
+| current_odometer | INTEGER | Index | NOT NULL, CHECK (current_odometer >= odometer_reading), DEFAULT 0 | Latest known odometer reading (km), used to evaluate mileage-based maintenance thresholds. Updated whenever a newer reading is captured (e.g., at maintenance scheduling); the mechanism that keeps this in sync with in-service driving activity is out of scope for this table's owning TRDs. |
 | brand | TEXT | | NOT NULL | Vehicle manufacturer brand. |
 | model | TEXT | | NOT NULL | Vehicle model. |
 | manufacturing_year | INTEGER | | NOT NULL | Year the vehicle was manufactured. |
