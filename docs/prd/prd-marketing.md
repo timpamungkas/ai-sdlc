@@ -1,7 +1,7 @@
 # PRD - Marketing
 
 ## Document Information
-- Product / Feature Name: Marketing (Car Rental) 
+- Product / Feature Name: Marketing (Car Rental)
 - Author: @copilot
 - Date:
 - Version:

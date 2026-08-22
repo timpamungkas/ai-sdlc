@@ -1,19 +1,27 @@
 # TRD - Reservation Allocation
 
 ## Document Information
-- Feature Name: Reservation Allocation
+- Feature Name: Reservation Allocation 
 - Author: Copilot
 - Date:
 - Version:
 
 ## Table of Contents
-- [Background](#background)
-- [In Scope](#in-scope)
-- [Constraints](#constraints)
-- [Technical Requirements](#technical-requirements)
-- [Security Requirement](#security-requirement)
-- [Non-Functional Requirements](#non-functional-requirements)
-- [AI usage disclaimer](#ai-usage-disclaimer)
+- [TRD - Reservation Allocation](#trd---reservation-allocation)
+  - [Document Information](#document-information)
+  - [Table of Contents](#table-of-contents)
+  - [Background](#background)
+  - [In Scope](#in-scope)
+  - [Constraints](#constraints)
+  - [Technical Requirements](#technical-requirements)
+    - [Database Design](#database-design)
+    - [Backend](#backend)
+      - [API Specification](#api-specification)
+      - [Common Validation](#common-validation)
+      - [Allocation Algorithm](#allocation-algorithm)
+  - [Security Requirement](#security-requirement)
+  - [Non-Functional Requirements](#non-functional-requirements)
+  - [AI usage disclaimer](#ai-usage-disclaimer)
 
 ## Background
 This TRD implements the functional requirement **[3. Reservation Allocation](../prd/prd-car-management.md#3-reservation-allocation)** defined in the [PRD - Car Management](../prd/prd-car-management.md).

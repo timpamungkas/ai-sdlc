@@ -15,7 +15,7 @@ erDiagram
     reservations ||--o| reservation_allocations : "results in"
 ```
 
-> **Note:** `vehicles` is defined by the [Database Design - Vehicle Onboarding](./database-design-vehicle-onboarding.md) document, which contains the canonical, consolidated table definition (merged across the Vehicle Onboarding, Location & Inventory Management, Reservation Allocation, and Maintenance & Service Scheduling TRDs). It is shown here only as a reference for relationships; its full table design is out of scope for this document.
+> **Note:** `vehicles` is defined by the [Database Design - Vehicle Onboarding](./database-design-vehicle-onboarding.md) document, which contains the canonical, consolidated table definition (merged across the Vehicle Onboarding, Location & Inventory Management, Reservation Allocation, and Maintenance & Service Scheduling TRDs). It is shown here only as a reference for relationships; its full table design is out of scope for this document. 
 
 ## Table Designs
 

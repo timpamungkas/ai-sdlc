@@ -1,6 +1,6 @@
 ---
 name: prd-drafter
-description: "Use this skill whenever the user wants to create, draft, or update a Product Requirement Document (PRD). Triggers include: any mention of 'PRD', 'product requirement document', 'requirement doc', or requests to turn a feature idea, ticket, meeting notes, or brief into a structured requirements document. Also use when the user asks to add user stories, acceptance criteria, or a problem statement for a feature, or to reformat an existing requirements write-up into a PRD. Do NOT use for general technical design docs, RFCs, or architecture docs that are not framed as product requirements."
+description: "Use this skill whenever the user wants to create, draft, or update a Product Requirement Document (PRD). Triggers include: any mention of 'PRD', 'product requirement document', 'requirement doc', or requests to turn a feature idea, ticket, meeting notes, or brief into a structured requirements document. Also use when the user asks to add user stories, acceptance criteria, or a problem statement for a feature, or to reformat an existing requirements write-up into a PRD. Do NOT use for general technical design docs, RFCs, or architecture docs that are not framed as product requirements." 
 ---
 
 

@@ -2,7 +2,7 @@
 applyTo: "docs/test-scenario/**"
 ---
 
-Use this folder only to store the test scenarios and related support files.
+Use this folder only to store the test scenarios and related support files. 
 When generating a specific artifact, you must follow this standard. 
 
 The general filename rule is:

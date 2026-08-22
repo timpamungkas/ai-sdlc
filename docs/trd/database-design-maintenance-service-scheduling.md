@@ -10,7 +10,7 @@ erDiagram
     maintenance_schedules ||--o| vehicle_availability_blocks : "blocks availability via"
 ```
 
-> Note: `vehicles` is defined by the [Database Design - Vehicle Onboarding](./database-design-vehicle-onboarding.md) document, which contains the canonical, consolidated table definition (merged across the Vehicle Onboarding, Location & Inventory Management, Reservation Allocation, and Maintenance & Service Scheduling TRDs). `vehicle_availability_blocks` is defined by the [Database Design - Car Management: Location & Inventory Management](./database-design-car-management-location-inventory.md) document. Both are shown here only as a reference for relationships; their full table designs are out of scope for this document.
+> Note: `vehicles` is defined by the [Database Design - Vehicle Onboarding](./database-design-vehicle-onboarding.md) document, which contains the canonical, consolidated table definition (merged across the Vehicle Onboarding, Location & Inventory Management, Reservation Allocation, and Maintenance & Service Scheduling TRDs). `vehicle_availability_blocks` is defined by the [Database Design - Car Management: Location & Inventory Management](./database-design-car-management-location-inventory.md) document. Both are shown here only as a reference for relationships; their full table designs are out of scope for this document. 
 
 ## Tables
 

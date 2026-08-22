@@ -3,7 +3,7 @@ applyTo: "docs/trd/**"
 ---
 
 Use this folder only to store the TRD (technical requirement document) and related support files.  
-When generating a specific artifact, you must follow this standard. 
+When generating a specific artifact, you must follow this standard.
 
 The general filename rule is:  
   - `trd-[feature].md` for the TRD file.

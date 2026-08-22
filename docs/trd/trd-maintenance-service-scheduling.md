@@ -1,22 +1,32 @@
 # TRD - Maintenance & Service Scheduling
 
 ## Document Information
-- Feature Name: Maintenance & Service Scheduling
+- Feature Name: Maintenance & Service Scheduling 
 - Author: copilot
 - Date:
 - Version:
 
 ## Table of Contents
-- [Background](#background)
-- [In Scope](#in-scope)
-- [Constraints](#constraints)
-- [Technical Requirements](#technical-requirements)
-  - [Database Design](#database-design)
-  - [Frontend](#frontend)
-  - [Backend](#backend)
-- [Security Requirement](#security-requirement)
-- [Non-Functional Requirements](#non-functional-requirements)
-- [AI usage disclaimer](#ai-usage-disclaimer)
+- [TRD - Maintenance \& Service Scheduling](#trd---maintenance--service-scheduling)
+  - [Document Information](#document-information)
+  - [Table of Contents](#table-of-contents)
+  - [Background](#background)
+  - [In Scope](#in-scope)
+  - [Constraints](#constraints)
+  - [Technical Requirements](#technical-requirements)
+    - [Database Design](#database-design)
+    - [Frontend](#frontend)
+    - [Backend](#backend)
+      - [API: Create a maintenance schedule](#api-create-a-maintenance-schedule)
+      - [API: Get maintenance schedules for a vehicle](#api-get-maintenance-schedules-for-a-vehicle)
+      - [API: Complete a maintenance schedule](#api-complete-a-maintenance-schedule)
+      - [API: Cancel a maintenance schedule](#api-cancel-a-maintenance-schedule)
+      - [Common Validation](#common-validation)
+      - [Algorithm - Create Maintenance Schedule](#algorithm---create-maintenance-schedule)
+      - [Algorithm - Complete / Cancel Maintenance Schedule](#algorithm---complete--cancel-maintenance-schedule)
+  - [Security Requirement](#security-requirement)
+  - [Non-Functional Requirements](#non-functional-requirements)
+  - [AI usage disclaimer](#ai-usage-disclaimer)
 
 ## Background
 This TRD implements the [Maintenance & Service Scheduling](https://github.com/timpamungkas/ai-sdlc/blob/main/docs/prd/prd-car-management.md#7-maintenance--service-scheduling) functional requirement defined in the [PRD - Car Management](../prd/prd-car-management.md). That requirement states maintenance is scheduled every 10,000-12,000 kilometers, with the crew setting a maintenance date at each 10,000 km multiple threshold. Maintenance takes priority over reservations: once scheduled, it automatically blocks the vehicle's availability for the scheduled day(s), and a vehicle with a maintenance-day conflict is excluded from reservation allocation in favor of maintenance.

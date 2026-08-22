@@ -1,19 +1,25 @@
 # TRD - Vehicle Onboarding
 
 ## Document Information
-- Feature Name: Vehicle Onboarding
+- Feature Name: Vehicle Onboarding 
 - Author: copilot
 - Date:
 - Version:
 
 ## Table of Contents
-- [Background](#background)
-- [In Scope](#in-scope)
-- [Constraints](#constraints)
-- [Technical Requirements](#technical-requirements)
-- [Security Requirement](#security-requirement)
-- [Non-Functional Requirements](#non-functional-requirements)
-- [AI usage disclaimer](#ai-usage-disclaimer)
+- [TRD - Vehicle Onboarding](#trd---vehicle-onboarding)
+  - [Document Information](#document-information)
+  - [Table of Contents](#table-of-contents)
+  - [Background](#background)
+  - [In Scope](#in-scope)
+  - [Constraints](#constraints)
+  - [Technical Requirements](#technical-requirements)
+    - [Database Design](#database-design)
+    - [Frontend](#frontend)
+    - [Backend](#backend)
+  - [Security Requirement](#security-requirement)
+  - [Non-Functional Requirements](#non-functional-requirements)
+  - [AI usage disclaimer](#ai-usage-disclaimer)
 
 ## Background
 This TRD implements the [Vehicle Onboarding](https://github.com/timpamungkas/ai-sdlc/blob/main/docs/prd/prd-car-management.md#1-vehicle-onboarding) functional requirement defined in the [PRD - Car Management](../prd/prd-car-management.md). That requirement covers two user stories:

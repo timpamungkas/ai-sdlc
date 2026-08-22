@@ -1,22 +1,31 @@
 # TRD - Car Management: Location & Inventory Management
 
 ## Document Information
-- Feature Name: Car Management - Location & Inventory Management
+- Feature Name: Car Management - Location & Inventory Management 
 - Author: copilot
 - Date:
 - Version:
 
 ## Table of Contents
-- [Background](#background)
-- [In Scope](#in-scope)
-- [Constraints](#constraints)
-- [Technical Requirements](#technical-requirements)
-  - [Database Design](#database-design)
-  - [Frontend](#frontend)
-  - [Backend](#backend)
-- [Security Requirement](#security-requirement)
-- [Non-Functional Requirements](#non-functional-requirements)
-- [AI usage disclaimer](#ai-usage-disclaimer)
+- [TRD - Car Management: Location \& Inventory Management](#trd---car-management-location--inventory-management)
+  - [Document Information](#document-information)
+  - [Table of Contents](#table-of-contents)
+  - [Background](#background)
+  - [In Scope](#in-scope)
+  - [Constraints](#constraints)
+  - [Technical Requirements](#technical-requirements)
+    - [Database Design](#database-design)
+    - [Frontend](#frontend)
+    - [Backend](#backend)
+      - [Common Validation](#common-validation)
+      - [API: Transfer a vehicle to a new home location](#api-transfer-a-vehicle-to-a-new-home-location)
+      - [API: Get a vehicle's home-location transfer history](#api-get-a-vehicles-home-location-transfer-history)
+      - [API: Get real-time availability for a vehicle](#api-get-real-time-availability-for-a-vehicle)
+      - [API: Get planned availability for a vehicle](#api-get-planned-availability-for-a-vehicle)
+      - [General Sequence / Algorithm](#general-sequence--algorithm)
+  - [Security Requirement](#security-requirement)
+  - [Non-Functional Requirements](#non-functional-requirements)
+  - [AI usage disclaimer](#ai-usage-disclaimer)
 
 ## Background
 This TRD implements the [Location & Inventory Management](https://github.com/timpamungkas/ai-sdlc/blob/main/docs/prd/prd-car-management.md#2-location--inventory-management) functional requirement from the PRD - Car Management. It covers tracking a vehicle's home location and transfer history, and exposing real-time and planned vehicle availability so dispatch staff can allocate vehicles without conflicts.

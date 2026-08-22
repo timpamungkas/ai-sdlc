@@ -1,7 +1,7 @@
 # PRD - Car Management
 
 ## Document Information
-- Product / Feature Name: Car Management 
+- Product / Feature Name: Car Management
 - Author: Copilot
 - Date:
 - Version:
