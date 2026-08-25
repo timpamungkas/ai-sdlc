@@ -8,7 +8,7 @@ When generating a specific artifact, you must follow this standard.
 The general filename rule is:  
   - `trd-[feature].md` for the TRD file.
   - `database-design-[feature].md` is a file that contains a database design/entity relationship diagram.
-  - For supporting files, no specific rule
+  - For supporting files, no specific rule 
 
 ---
 

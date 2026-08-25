@@ -7,7 +7,7 @@ description: "Use this skill whenever the user wants to create, draft, or update
 ## Before writing
  
 Gather what's needed from the input the user gives (ticket, notes, chat, transcript). 
-If any of the information required for creating PRD are missing, ask the user rather than inventing them.
+If any of the information required for creating PRD are missing, ask the user rather than inventing them. 
 
 
 ## PRD Format 
